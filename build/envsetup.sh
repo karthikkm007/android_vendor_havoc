@@ -282,10 +282,10 @@ function havocremote()
     if [ -z "$GERRIT_REMOTE" ]
     then
         local GERRIT_REMOTE=$(git config --get remote.aosp.projectname | sed s#platform/#android/#g | sed s#/#_#g)
-        local PFX="Havoc/"
+        local PFX="HAVOC/"
     fi
-    local Havoc_USER=$(git config --get gerrit.havoc-rom.com.username)
-    if [ -z "$Havoc_USER" ]
+    local HAVOC_USER=$(git config --get gerrit.havoc-rom.com.username)
+    if [ -z "$HAVOC_USER" ]
     then
         git remote add havoc ssh://gerrit.havoc-rom.com:29418/$PFX$GERRIT_REMOTE
     else
@@ -943,7 +943,7 @@ function repopick() {
 function fixup_common_out_dir() {
     common_out_dir=$(get_build_var OUT_DIR)/target/common
     target_device=$(get_build_var TARGET_DEVICE)
-    if [ ! -z $Havoc_FIXUP_COMMON_OUT ]; then
+    if [ ! -z $HAVOC_FIXUP_COMMON_OUT ]; then
         if [ -d ${common_out_dir} ] && [ ! -L ${common_out_dir} ]; then
             mv ${common_out_dir} ${common_out_dir}-${target_device}
             ln -s ${common_out_dir}-${target_device} ${common_out_dir}

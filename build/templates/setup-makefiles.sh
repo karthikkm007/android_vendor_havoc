@@ -29,7 +29,7 @@ if [[ ! -d "$MY_DIR" ]]; then MY_DIR="$PWD"; fi
 
 Havoc_ROOT="$MY_DIR"/../../..
 
-HELPER="$Havoc_ROOT"/vendor/havoc/build/tools/extract_utils.sh
+HELPER="$HAVOC_ROOT"/vendor/havoc/build/tools/extract_utils.sh
 if [ ! -f "$HELPER" ]; then
     echo "Unable to find helper script at $HELPER"
     exit 1
@@ -37,7 +37,7 @@ fi
 . "$HELPER"
 
 # Initialize the helper
-setup_vendor "$DEVICE" "$VENDOR" "$Havoc_ROOT"
+setup_vendor "$DEVICE" "$VENDOR" "$HAVOC_ROOT"
 
 # Copyright headers and guards
 write_headers
