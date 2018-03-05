@@ -1,13 +1,13 @@
-function __print_aicp_functions_help() {
+function __print_havoc_functions_help() {
 cat <<EOF
-Additional AICP functions:
+Additional Havoc functions:
 - cout:            Changes directory to out.
 - mmp:             Builds all of the modules in the current directory and pushes them to the device.
 - mmap:            Builds all of the modules in the current directory and its dependencies, then pushes the package to the device.
 - mmmp:            Builds all of the modules in the supplied directories and pushes them to the device.
-- aicpgerrit:      A Git wrapper that fetches/pushes patch from/to AICP Gerrit Review.
-- aicprebase:      Rebase a Gerrit change and push it again.
-- aicpremote:      Add git remote for AICP Gerrit Review.
+- havocgerrit:      A Git wrapper that fetches/pushes patch from/to Havoc Gerrit Review.
+- havocrebase:      Rebase a Gerrit change and push it again.
+- havocremote:      Add git remote for Havoc Gerrit Review.
 - aospremote:      Add git remote for matching AOSP repository.
 - cafremote:       Add git remote for matching CodeAurora repository.
 - mka:             Builds using SCHED_BATCH on all processors.
@@ -79,10 +79,10 @@ function breakfast()
 {
     target=$1
     local variant=$2
-    AICP_DEVICES_ONLY="true"
+    Havoc_DEVICES_ONLY="true"
     unset LUNCH_MENU_CHOICES
     add_lunch_combo full-eng
-    for f in `/bin/ls vendor/aicp/vendorsetup.sh 2> /dev/null`
+    for f in `/bin/ls vendor/havoc/vendorsetup.sh 2> /dev/null`
         do
             echo "including $f"
             . $f
@@ -98,12 +98,12 @@ function breakfast()
             # A buildtype was specified, assume a full device name
             lunch $target
         else
-            # This is probably just the AICP model name
+            # This is probably just the Havoc model name
             if [ -z "$variant" ]; then
                 variant="userdebug"
             fi
 
-            lunch aicp_$target-$variant
+            lunch havoc_$target-$variant
         fi
     fi
     return $?
@@ -114,8 +114,8 @@ alias bib=breakfast
 function eat()
 {
     if [ "$OUT" ] ; then
-        MODVERSION=$(get_build_var AICP_VERSION)
-        ZIPFILE=aicp-$MODVERSION.zip
+        MODVERSION=$(get_build_var Havoc_VERSION)
+        ZIPFILE=havoc-$MODVERSION.zip
         ZIPPATH=$OUT/$ZIPFILE
         if [ ! -f $ZIPPATH ] ; then
             echo "Nothing to eat"
@@ -130,7 +130,7 @@ function eat()
             done
             echo "Device Found.."
         fi
-        if (adb shell getprop ro.aicp.device | grep -q "$AICP_BUILD"); then
+        if (adb shell getprop ro.havoc.device | grep -q "$Havoc_BUILD"); then
             # if adbd isn't root we can't write to /cache/recovery/
             adb root
             sleep 1
@@ -146,7 +146,7 @@ EOF
             fi
             rm /tmp/command
         else
-            echo "The connected device does not appear to be $AICP_BUILD, run away!"
+            echo "The connected device does not appear to be $Havoc_BUILD, run away!"
         fi
         return $?
     else
@@ -270,28 +270,28 @@ function dddclient()
    fi
 }
 
-function aicpremote()
+function havocremote()
 {
     if ! git rev-parse --git-dir &> /dev/null
     then
         echo ".git directory not found. Please run this from the root directory of the Android repository you wish to set up."
         return 1
     fi
-    git remote rm aicp 2> /dev/null
+    git remote rm havoc 2> /dev/null
     local GERRIT_REMOTE=$(git config --get remote.github.projectname)
     if [ -z "$GERRIT_REMOTE" ]
     then
         local GERRIT_REMOTE=$(git config --get remote.aosp.projectname | sed s#platform/#android/#g | sed s#/#_#g)
-        local PFX="AICP/"
+        local PFX="Havoc/"
     fi
-    local AICP_USER=$(git config --get gerrit.aicp-rom.com.username)
-    if [ -z "$AICP_USER" ]
+    local Havoc_USER=$(git config --get gerrit.havoc-rom.com.username)
+    if [ -z "$Havoc_USER" ]
     then
-        git remote add aicp ssh://gerrit.aicp-rom.com:29418/$PFX$GERRIT_REMOTE
+        git remote add havoc ssh://gerrit.havoc-rom.com:29418/$PFX$GERRIT_REMOTE
     else
-        git remote add aicp ssh://$AICP_USER@gerrit.aicp-rom.com:29418/$PFX$GERRIT_REMOTE
+        git remote add havoc ssh://$Havoc_USER@gerrit.havoc-rom.com:29418/$PFX$GERRIT_REMOTE
     fi
-    echo "Remote 'aicp' created"
+    echo "Remote 'havoc' created"
 }
 
 function aospremote()
@@ -372,7 +372,7 @@ function installboot()
     sleep 1
     adb wait-for-online shell mount /system 2>&1 > /dev/null
     adb wait-for-online remount
-    if (adb shell getprop ro.aicp.device | grep -q "$AICP_BUILD");
+    if (adb shell getprop ro.havoc.device | grep -q "$Havoc_BUILD");
     then
         adb push $OUT/boot.img /cache/
         if [ -e "$OUT/system/lib/modules/*" ];
@@ -387,7 +387,7 @@ function installboot()
         adb shell rm -rf /cache/boot.img
         echo "Installation complete."
     else
-        echo "The connected device does not appear to be $AICP_BUILD, run away!"
+        echo "The connected device does not appear to be $Havoc_BUILD, run away!"
     fi
 }
 
@@ -421,14 +421,14 @@ function installrecovery()
     sleep 1
     adb wait-for-online shell mount /system 2>&1 >> /dev/null
     adb wait-for-online remount
-    if (adb shell getprop ro.aicp.device | grep -q "$AICP_BUILD");
+    if (adb shell getprop ro.havoc.device | grep -q "$Havoc_BUILD");
     then
         adb push $OUT/recovery.img /cache/
         adb shell dd if=/cache/recovery.img of=$PARTITION
         adb shell rm -rf /cache/recovery.img
         echo "Installation complete."
     else
-        echo "The connected device does not appear to be $AICP_BUILD, run away!"
+        echo "The connected device does not appear to be $Havoc_BUILD, run away!"
     fi
 }
 
@@ -448,13 +448,13 @@ function makerecipe() {
     if [ "$REPO_REMOTE" = "github" ]
     then
         pwd
-        aicpremote
-        git push aicp HEAD:refs/heads/'$1'
+        havocremote
+        git push havoc HEAD:refs/heads/'$1'
     fi
     '
 }
 
-function aicpgerrit() {
+function havocgerrit() {
     if [ "$(__detect_shell)" = "zsh" ]; then
         # zsh does not define FUNCNAME, derive from funcstack
         local FUNCNAME=$funcstack[1]
@@ -464,7 +464,7 @@ function aicpgerrit() {
         $FUNCNAME help
         return 1
     fi
-    local user=`git config --get gerrit.aicp-rom.com.username`
+    local user=`git config --get gerrit.havoc-rom.com.username`
     local review=`git config --get remote.github.review`
     local project=`git config --get remote.github.projectname`
     local command=$1
@@ -500,7 +500,7 @@ EOF
             case $1 in
                 __cmg_*) echo "For internal use only." ;;
                 changes|for)
-                    if [ "$FUNCNAME" = "aicpgerrit" ]; then
+                    if [ "$FUNCNAME" = "havocgerrit" ]; then
                         echo "'$FUNCNAME $1' is deprecated."
                     fi
                     ;;
@@ -593,7 +593,7 @@ EOF
                 $local_branch:refs/for/$remote_branch || return 1
             ;;
         changes|for)
-            if [ "$FUNCNAME" = "aicpgerrit" ]; then
+            if [ "$FUNCNAME" = "havocgerrit" ]; then
                 echo >&2 "'$FUNCNAME $command' is deprecated."
             fi
             ;;
@@ -692,15 +692,15 @@ EOF
     esac
 }
 
-function aicprebase() {
+function havocrebase() {
     local repo=$1
     local refs=$2
     local pwd="$(pwd)"
     local dir="$(gettop)/$repo"
 
     if [ -z $repo ] || [ -z $refs ]; then
-        echo "AICP Gerrit Rebase Usage: "
-        echo "      aicprebase <path to project> <patch IDs on Gerrit>"
+        echo "Havoc Gerrit Rebase Usage: "
+        echo "      havocrebase <path to project> <patch IDs on Gerrit>"
         echo "      The patch IDs appear on the Gerrit commands that are offered."
         echo "      They consist on a series of numbers and slashes, after the text"
         echo "      refs/changes. For example, the ID in the following command is 26/8126/2"
@@ -721,7 +721,7 @@ function aicprebase() {
     echo "Bringing it up to date..."
     repo sync .
     echo "Fetching change..."
-    git fetch "http://gerrit.aicp-rom.com/p/$repo" "refs/changes/$refs" && git cherry-pick FETCH_HEAD
+    git fetch "http://gerrit.havoc-rom.com/p/$repo" "refs/changes/$refs" && git cherry-pick FETCH_HEAD
     if [ "$?" != "0" ]; then
         echo "Error cherry-picking. Not uploading!"
         return
@@ -806,7 +806,7 @@ function dopush()
         echo "Device Found."
     fi
 
-    if (adb shell getprop ro.aicp.device | grep -q "$AICP_BUILD") || [ "$FORCE_PUSH" = "true" ];
+    if (adb shell getprop ro.havoc.device | grep -q "$Havoc_BUILD") || [ "$FORCE_PUSH" = "true" ];
     then
     # retrieve IP and PORT info if we're using a TCP connection
     TCPIPPORT=$(adb devices \
@@ -924,7 +924,7 @@ EOF
     rm -f $OUT/.log
     return 0
     else
-        echo "The connected device does not appear to be $AICP_BUILD, run away!"
+        echo "The connected device does not appear to be $Havoc_BUILD, run away!"
     fi
 }
 
@@ -937,13 +937,13 @@ alias cmkap='dopush cmka'
 
 function repopick() {
     T=$(gettop)
-    $T/vendor/aicp/build/tools/repopick.py $@
+    $T/vendor/havoc/build/tools/repopick.py $@
 }
 
 function fixup_common_out_dir() {
     common_out_dir=$(get_build_var OUT_DIR)/target/common
     target_device=$(get_build_var TARGET_DEVICE)
-    if [ ! -z $AICP_FIXUP_COMMON_OUT ]; then
+    if [ ! -z $Havoc_FIXUP_COMMON_OUT ]; then
         if [ -d ${common_out_dir} ] && [ ! -L ${common_out_dir} ]; then
             mv ${common_out_dir} ${common_out_dir}-${target_device}
             ln -s ${common_out_dir}-${target_device} ${common_out_dir}

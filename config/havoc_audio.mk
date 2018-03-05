@@ -1,11 +1,11 @@
 #
-# AICP Audio Files
+# Havoc Audio Files
 #
 
-ALARM_PATH := vendor/aicp/prebuilt/common/media/audio/alarms
-UI_PATH := vendor/aicp/prebuilt/common/media/audio/ui
-NOTIFICATION_PATH := vendor/aicp/prebuilt/common/media/audio/notifications
-RINGTONE_PATH := vendor/aicp/prebuilt/common/media/audio/ringtones
+ALARM_PATH := vendor/havoc/prebuilt/common/media/audio/alarms
+UI_PATH := vendor/havoc/prebuilt/common/media/audio/ui
+NOTIFICATION_PATH := vendor/havoc/prebuilt/common/media/audio/notifications
+RINGTONE_PATH := vendor/havoc/prebuilt/common/media/audio/ringtones
 
 # Alarms
 PRODUCT_COPY_FILES += \

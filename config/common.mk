@@ -1,4 +1,4 @@
-PRODUCT_BRAND ?= AICP
+PRODUCT_BRAND ?= Havoc
 
 PRODUCT_BUILD_PROP_OVERRIDES += BUILD_UTC_DATE=0
 
@@ -41,41 +41,41 @@ endif
 
 # Backup Tool
 PRODUCT_COPY_FILES += \
-    vendor/aicp/prebuilt/common/bin/backuptool.sh:install/bin/backuptool.sh \
-    vendor/aicp/prebuilt/common/bin/backuptool.functions:install/bin/backuptool.functions \
-    vendor/aicp/prebuilt/common/bin/50-aicp.sh:system/addon.d/50-aicp.sh \
-    vendor/aicp/prebuilt/common/bin/blacklist:system/addon.d/blacklist
+    vendor/havoc/prebuilt/common/bin/backuptool.sh:install/bin/backuptool.sh \
+    vendor/havoc/prebuilt/common/bin/backuptool.functions:install/bin/backuptool.functions \
+    vendor/havoc/prebuilt/common/bin/50-havoc.sh:system/addon.d/50-havoc.sh \
+    vendor/havoc/prebuilt/common/bin/blacklist:system/addon.d/blacklist
 
 # Backup Services whitelist
 PRODUCT_COPY_FILES += \
-    vendor/aicp/config/permissions/backup.xml:system/etc/sysconfig/backup.xml
+    vendor/havoc/config/permissions/backup.xml:system/etc/sysconfig/backup.xml
 
 # Lineage-specific broadcast actions whitelist
 PRODUCT_COPY_FILES += \
-    vendor/aicp/config/permissions/lineage-sysconfig.xml:system/etc/sysconfig/lineage-sysconfig.xml
+    vendor/havoc/config/permissions/lineage-sysconfig.xml:system/etc/sysconfig/lineage-sysconfig.xml
 
 # Signature compatibility validation
 PRODUCT_COPY_FILES += \
-    vendor/aicp/prebuilt/common/bin/otasigcheck.sh:install/bin/otasigcheck.sh
+    vendor/havoc/prebuilt/common/bin/otasigcheck.sh:install/bin/otasigcheck.sh
 
 # init.d support
 PRODUCT_COPY_FILES += \
-    vendor/aicp/prebuilt/common/etc/init.d/00banner:system/etc/init.d/00banner \
-    vendor/aicp/prebuilt/common/bin/sysinit:system/bin/sysinit
+    vendor/havoc/prebuilt/common/etc/init.d/00banner:system/etc/init.d/00banner \
+    vendor/havoc/prebuilt/common/bin/sysinit:system/bin/sysinit
 
 ifneq ($(TARGET_BUILD_VARIANT),user)
 # userinit support
 PRODUCT_COPY_FILES += \
-    vendor/aicp/prebuilt/common/etc/init.d/90userinit:system/etc/init.d/90userinit
+    vendor/havoc/prebuilt/common/etc/init.d/90userinit:system/etc/init.d/90userinit
 endif
 
 # Copy all Lineage-specific init rc files
-$(foreach f,$(wildcard vendor/aicp/prebuilt/common/etc/init/*.rc),\
+$(foreach f,$(wildcard vendor/havoc/prebuilt/common/etc/init/*.rc),\
 	$(eval PRODUCT_COPY_FILES += $(f):system/etc/init/$(notdir $f)))
 
 # Copy over added mimetype supported in libcore.net.MimeUtils
 PRODUCT_COPY_FILES += \
-    vendor/aicp/prebuilt/common/lib/content-types.properties:system/lib/content-types.properties
+    vendor/havoc/prebuilt/common/lib/content-types.properties:system/lib/content-types.properties
 
 # Enable SIP+VoIP on all targets
 PRODUCT_COPY_FILES += \
@@ -85,33 +85,33 @@ PRODUCT_COPY_FILES += \
 PRODUCT_COPY_FILES += \
     frameworks/base/data/keyboards/Vendor_045e_Product_028e.kl:system/usr/keylayout/Vendor_045e_Product_0719.kl
 
-# This is AICP!
+# This is Havoc!
 PRODUCT_COPY_FILES += \
-    vendor/aicp/config/permissions/org.lineageos.android.xml:system/etc/permissions/org.lineageos.android.xml \
-    vendor/aicp/config/permissions/privapp-permissions-lineage.xml:system/etc/permissions/privapp-permissions-lineage.xml
+    vendor/havoc/config/permissions/org.lineageos.android.xml:system/etc/permissions/org.lineageos.android.xml \
+    vendor/havoc/config/permissions/privapp-permissions-lineage.xml:system/etc/permissions/privapp-permissions-lineage.xml
 
-# Include AICP audio files
-include vendor/aicp/config/aicp_audio.mk
+# Include Havoc audio files
+include vendor/havoc/config/havoc_audio.mk
 
 # Fix Google dialer
 PRODUCT_COPY_FILES += \
-    vendor/aicp/prebuilt/common/etc/dialer_experience.xml:system/etc/sysconfig/dialer_experience.xml
+    vendor/havoc/prebuilt/common/etc/dialer_experience.xml:system/etc/sysconfig/dialer_experience.xml
 
 ifneq ($(TARGET_DISABLE_LINEAGE_SDK), true)
 # Lineage SDK
-include vendor/aicp/config/lineage_sdk_common.mk
+include vendor/havoc/config/lineage_sdk_common.mk
 endif
 
 # TWRP
 ifeq ($(WITH_TWRP),true)
-include vendor/aicp/config/twrp.mk
+include vendor/havoc/config/twrp.mk
 endif
 
 # Bootanimation
 PRODUCT_PACKAGES += \
     bootanimation.zip
 
-# Required AICP packages
+# Required Havoc packages
 PRODUCT_PACKAGES += \
     BluetoothExt \
     LineageParts \
@@ -144,9 +144,9 @@ PRODUCT_PACKAGES += \
     WallpaperPicker \
     WeatherProvider
 
-# Custom AICP packages
+# Custom Havoc packages
 PRODUCT_PACKAGES += \
-    AicpExtras
+    HavocSettings
 
 # Exchange support
 PRODUCT_PACKAGES += \
@@ -173,7 +173,7 @@ PRODUCT_PACKAGES += \
     DefaultDark-LineageParts \
     DefaultDark-Calculator
 
-# Extra tools in AICP
+# Extra tools in Havoc
 PRODUCT_PACKAGES += \
     7z \
     bash \
@@ -209,11 +209,11 @@ PRODUCT_PACKAGES += \
     charger_res_images
 
 # Custom off-mode charger
-ifeq ($(WITH_AICP_CHARGER),true)
+ifeq ($(WITH_Havoc_CHARGER),true)
 PRODUCT_PACKAGES += \
     lineage_charger_res_images \
     font_log.png \
-    libhealthd.aicp
+    libhealthd.havoc
 endif
 
 # exFAT tools
@@ -270,21 +270,21 @@ PRODUCT_PACKAGES += \
 endif
 endif
 
-DEVICE_PACKAGE_OVERLAYS += vendor/aicp/overlay/common
+DEVICE_PACKAGE_OVERLAYS += vendor/havoc/overlay/common
 
 -include $(WORKSPACE)/build_env/image-auto-bits.mk
--include vendor/aicp/config/partner_gms.mk
+-include vendor/havoc/config/partner_gms.mk
 -include vendor/cyngn/product.mk
 
 $(call prepend-product-if-exists, vendor/extra/product.mk)
 
-# AICP Versioning
--include vendor/aicp/config/version.mk
+# Havoc Versioning
+-include vendor/havoc/config/version.mk
 
-# AICP OTA
-ifneq ($(AICP_BUILDTYPE),UNOFFICIAL)
+# Havoc OTA
+ifneq ($(Havoc_BUILDTYPE),UNOFFICIAL)
 PRODUCT_PACKAGES +=  \
-   AICP_OTA
+   Havoc_OTA
 endif
 
 # Omni Packages

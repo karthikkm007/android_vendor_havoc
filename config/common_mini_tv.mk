@@ -1,2 +1,2 @@
-# Inherit mini common AICP stuff
-$(call inherit-product, vendor/aicp/config/common_mini.mk)
+# Inherit mini common Havoc stuff
+$(call inherit-product, vendor/havoc/config/common_mini.mk)

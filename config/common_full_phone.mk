@@ -1,11 +1,11 @@
-# Inherit full common AICP stuff
-$(call inherit-product, vendor/aicp/config/common_full.mk)
+# Inherit full common Havoc stuff
+$(call inherit-product, vendor/havoc/config/common_full.mk)
 
 # Required packages
 PRODUCT_PACKAGES += \
     LatinIME
 
-# Include AICP LatinIME dictionaries
-PRODUCT_PACKAGE_OVERLAYS += vendor/aicp/overlay/dictionaries
+# Include Havoc LatinIME dictionaries
+PRODUCT_PACKAGE_OVERLAYS += vendor/havoc/overlay/dictionaries
 
-$(call inherit-product, vendor/aicp/config/telephony.mk)
+$(call inherit-product, vendor/havoc/config/telephony.mk)

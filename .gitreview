@@ -1,5 +1,5 @@
 [gerrit]
-host=gerrit.aicp-rom.com
+host=gerrit.havoc-rom.com
 port=29418
-project=AICP/vendor_aicp
+project=Havoc/vendor_havoc
 defaultbranch=o8.0

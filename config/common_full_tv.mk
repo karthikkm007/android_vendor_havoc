@@ -1,6 +1,6 @@
-# Inherit full common AICP stuff
-$(call inherit-product, vendor/aicp/config/common_full.mk)
+# Inherit full common Havoc stuff
+$(call inherit-product, vendor/havoc/config/common_full.mk)
 
 PRODUCT_PACKAGES += AppDrawer
 
-DEVICE_PACKAGE_OVERLAYS += vendor/aicp/overlay/tv
+DEVICE_PACKAGE_OVERLAYS += vendor/havoc/overlay/tv

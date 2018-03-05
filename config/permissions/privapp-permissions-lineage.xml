@@ -78,7 +78,7 @@
         <permission name="android.permission.BIND_APPWIDGET"/>
     </privapp-permissions>
 
-    <privapp-permissions package="com.aicp.aicpota">
+    <privapp-permissions package="com.havoc.havocota">
         <permission name="android.permission.ACCESS_NETWORK_STATE"/>
         <permission name="android.permission.INTERACT_ACROSS_USERS_FULL"/>
         <permission name="android.permission.INTERNET"/>
@@ -90,7 +90,7 @@
         <permission name="android.permission.RECOVERY"/>
     </privapp-permissions>
 
-    <privapp-permissions package="com.aicp.extras">
+    <privapp-permissions package="com.havoc.extras">
         <permission name="android.permission.ACCESS_NETWORK_STATE"/>
         <permission name="android.permission.READ_PHONE_STATE"/>
         <permission name="android.permission.INTERACT_ACROSS_USERS_FULL"/>

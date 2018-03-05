@@ -1,4 +1,4 @@
 # Charger
-ifeq ($(WITH_AICP_CHARGER),true)
-    BOARD_HAL_STATIC_LIBRARIES := libhealthd.aicp
+ifeq ($(WITH_Havoc_CHARGER),true)
+    BOARD_HAL_STATIC_LIBRARIES := libhealthd.havoc
 endif

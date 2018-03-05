@@ -1,10 +1,10 @@
 # Permissions for lineage sdk services
 PRODUCT_COPY_FILES += \
-    vendor/aicp/config/permissions/org.lineageos.audio.xml:system/etc/permissions/org.lineageos.audio.xml \
-    vendor/aicp/config/permissions/org.lineageos.livedisplay.xml:system/etc/permissions/org.lineageos.livedisplay.xml \
-    vendor/aicp/config/permissions/org.lineageos.performance.xml:system/etc/permissions/org.lineageos.performance.xml \
-    vendor/aicp/config/permissions/org.lineageos.profiles.xml:system/etc/permissions/org.lineageos.profiles.xml \
-    vendor/aicp/config/permissions/org.lineageos.weather.xml:system/etc/permissions/org.lineageos.weather.xml
+    vendor/havoc/config/permissions/org.lineageos.audio.xml:system/etc/permissions/org.lineageos.audio.xml \
+    vendor/havoc/config/permissions/org.lineageos.livedisplay.xml:system/etc/permissions/org.lineageos.livedisplay.xml \
+    vendor/havoc/config/permissions/org.lineageos.performance.xml:system/etc/permissions/org.lineageos.performance.xml \
+    vendor/havoc/config/permissions/org.lineageos.profiles.xml:system/etc/permissions/org.lineageos.profiles.xml \
+    vendor/havoc/config/permissions/org.lineageos.weather.xml:system/etc/permissions/org.lineageos.weather.xml
 
 # Lineage Platform Library
 PRODUCT_PACKAGES += \

@@ -5,8 +5,8 @@
 - Adjust number of notifications on Lockscreen
 - Adjust volume dialog timeout
 - Advanced reboot
-- Aicp Extras app for customizations and beyond
-- AICP Logo in Stausbar
+- Havoc Extras app for customizations and beyond
+- Havoc Logo in Stausbar
 - Allow more time steps to 'Do not disturb'
 - Automatic speakerphone by checking Proximity (Dialer)
 - Battery bar
@@ -32,7 +32,7 @@
 - DUI Pulse sound EQ in the statusbar
 - DUI Smartbar (on-screen navbar)
 - DUI Stock navbar option
-- Enhanced Changelog in AicpExtras
+- Enhanced Changelog in HavocExtras
 - Enhanced QS tile for Hotspot (longpress for Tethering options)
 - File persistence on "hosts" file between flashes
 - Fingerprint authentication vibration
@@ -42,7 +42,7 @@
 - Headphones icon switch
 - Hide Magisk Manager / SuperSU from Settings, if it is uninstalled
 - Installed Apps: show link to Google Playstore
-- Integrated OTA-Update App in Aicp Extras
+- Integrated OTA-Update App in Havoc Extras
 - Launch music player when headset is connected
 - Lockscreen Shortcuts
 - Membar in recents (default and in SlimRecents)
@@ -61,7 +61,7 @@
 - QS tile for Night mode
 - QS Tiles Rows
 - QS Tile titles visibility
-- QS Tiles- AicpExtras, disable music track, sync, caffeine, PIP, nfc, sound, usb, system language, ime selector, usb tether, screenshot, flashlight, compass 
+- QS Tiles- HavocExtras, disable music track, sync, caffeine, PIP, nfc, sound, usb, system language, ime selector, usb tether, screenshot, flashlight, compass 
 - Quick settings disable on lockscreen
 - Quick settings fast pull down
 - Reset Battery Stats
@@ -77,7 +77,7 @@
 - Small QS Tiles (scrollable)
 - Smartbar: Pixel Button Animatiom
 - SmartBar: show arrows for next/previous track when playing audio
-- Statusbar AICP logo
+- Statusbar Havoc logo
 - Statusbar temperature
 - Statusbar Ticker for notifications and music title
 - Suspend actions
@@ -92,7 +92,7 @@
 - Volume Steps
 - VoLte icon
 - Weather in statusbar headers with icon support
-- Weather settings for Lockscreen (in Aicp Extras)
+- Weather settings for Lockscreen (in  Extras)
 - Yoga time
 
 ...and more

@@ -24,7 +24,7 @@ ifeq ($(TARGET_SCREEN_HEIGHT),)
 endif
 
 define build-bootanimation
-    sh vendor/aicp/bootanimation/generate-bootanimation.sh \
+    sh vendor/havoc/bootanimation/generate-bootanimation.sh \
     $(TARGET_SCREEN_WIDTH) \
     $(TARGET_SCREEN_HEIGHT) \
     $(TARGET_BOOTANIMATION_HALF_RES)
