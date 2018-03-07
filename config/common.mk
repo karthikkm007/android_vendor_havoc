@@ -136,10 +136,7 @@ PRODUCT_PACKAGES += \
     LineageSettingsProvider \
     LineageSetupWizard \
     Eleven \
-    ExactCalculator \
-    Jelly \
     LockClock \
-    Trebuchet \
     Updater \
     WallpaperPicker \
     WeatherProvider
@@ -147,7 +144,8 @@ PRODUCT_PACKAGES += \
 # Custom Havoc packages
 PRODUCT_PACKAGES += \
     AdAway \
-	HavocSettings
+    Calculator \
+    HavocSettings
 
 # Exchange support
 PRODUCT_PACKAGES += \
