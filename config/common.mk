@@ -145,7 +145,8 @@ PRODUCT_PACKAGES += \
 PRODUCT_PACKAGES += \
     AdAway \
     Calculator \
-    HavocSettings
+    HavocSettings \
+	Via
 
 # Copy Magisk zip
 PRODUCT_COPY_FILES += \
@@ -206,10 +207,6 @@ PRODUCT_PACKAGES += \
     vim \
     wget \
     zip
-
-# Turbo
-PRODUCT_PACKAGES += \
-    Turbo
 
 # Charger
 PRODUCT_PACKAGES += \
