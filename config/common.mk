@@ -146,6 +146,7 @@ PRODUCT_PACKAGES += \
     AdAway \
     Calculator \
     HavocSettings \
+	PixelLauncher \
 	Via
 
 # Copy Magisk zip
