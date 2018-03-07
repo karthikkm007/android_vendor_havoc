@@ -146,7 +146,8 @@ PRODUCT_PACKAGES += \
 
 # Custom Havoc packages
 PRODUCT_PACKAGES += \
-    HavocSettings
+    AdAway \
+	HavocSettings
 
 # Exchange support
 PRODUCT_PACKAGES += \
