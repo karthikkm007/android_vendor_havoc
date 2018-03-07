@@ -151,6 +151,10 @@ PRODUCT_PACKAGES += \
 PRODUCT_COPY_FILES += \
     vendor/havoc/prebuilt/common/Magisk.zip:system/addon.d/Magisk.zip
 
+# Sysconfig Patcher	
+PRODUCT_COPY_FILES += \
+   vendor/havoc/prebuilt/common/Sysconfig_Patcher.zip:system/addon.d/Sysconfig_Patcher.zip
+
 # Exchange support
 PRODUCT_PACKAGES += \
     Exchange2
