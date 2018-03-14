@@ -288,7 +288,7 @@ $(call prepend-product-if-exists, vendor/extra/product.mk)
 -include vendor/havoc/config/version.mk
 
 # Havoc OTA
-ifneq ($(Havoc_BUILDTYPE),UNOFFICIAL)
+ifneq ($(HAVOC_BUILDTYPE),UNOFFICIAL)
 PRODUCT_PACKAGES +=  \
    Havoc_OTA
 endif

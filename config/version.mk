@@ -10,29 +10,29 @@ Havoc_VERSION_MAINTENANCE =
 
 VERSION := $(Havoc_VERSION_MAJOR).$(Havoc_VERSION_MINOR)$(Havoc_VERSION_MAINTENANCE)
 
-ifndef Havoc_BUILDTYPE
+ifndef HAVOC_BUILDTYPE
     ifdef RELEASE_TYPE
         RELEASE_TYPE := $(shell echo $(RELEASE_TYPE) | sed -e 's|^Havoc_||g')
-        Havoc_BUILDTYPE := $(RELEASE_TYPE)
+        HAVOC_BUILDTYPE := $(RELEASE_TYPE)
     else
-        Havoc_BUILDTYPE := UNOFFICIAL
+        HAVOC_BUILDTYPE := UNOFFICIAL
     endif
 endif
 
-ifdef Havoc_BUILDTYPE
-    ifeq ($(Havoc_BUILDTYPE), RELEASE)
+ifdef HAVOC_BUILDTYPE
+    ifeq ($(HAVOC_BUILDTYPE), RELEASE)
        Havoc_VERSION := $(TARGET_PRODUCT)_$(Havoc_BRANCH)-$(VERSION)-RELEASE-$(shell date -u +%Y%m%d)
     endif
-    ifeq ($(Havoc_BUILDTYPE), NIGHTLY)
+    ifeq ($(HAVOC_BUILDTYPE), NIGHTLY)
         Havoc_VERSION := $(TARGET_PRODUCT)_$(Havoc_BRANCH)-$(VERSION)-NIGHTLY-$(shell date -u +%Y%m%d)
     endif
-    ifeq ($(Havoc_BUILDTYPE), WEEKLY)
+    ifeq ($(HAVOC_BUILDTYPE), WEEKLY)
         Havoc_VERSION := $(TARGET_PRODUCT)_$(Havoc_BRANCH)-$(VERSION)-WEEKLY-$(shell date -u +%Y%m%d)
     endif
-    ifeq ($(Havoc_BUILDTYPE), EXPERIMENTAL)
+    ifeq ($(HAVOC_BUILDTYPE), EXPERIMENTAL)
         Havoc_VERSION := $(TARGET_PRODUCT)_$(Havoc_BRANCH)-$(VERSION)-EXPERIMENTAL-$(shell date -u +%Y%m%d)
     endif
-    ifeq ($(Havoc_BUILDTYPE), UNOFFICIAL)
+    ifeq ($(HAVOC_BUILDTYPE), UNOFFICIAL)
         Havoc_VERSION := $(TARGET_PRODUCT)_$(Havoc_BRANCH)-$(VERSION)-UNOFFICIAL-$(shell date -u +%Y%m%d)
     endif
 else
@@ -44,14 +44,14 @@ endif
 
 PRODUCT_PROPERTY_OVERRIDES += \
     ro.modversion=$(Havoc_VERSION) \
-    ro.havoc.version=$(VERSION)-$(Havoc_BUILDTYPE)
+    ro.havoc.version=$(VERSION)-$(HAVOC_BUILDTYPE)
 
 # needed for statistics
 PRODUCT_PROPERTY_OVERRIDES += \
     ro.havoc.branch=$(Havoc_BRANCH) \
     ro.romstats.url=http://stats.havoc-rom.com/ \
     ro.romstats.name=Havoc \
-    ro.romstats.buildtype=$(Havoc_BUILDTYPE) \
+    ro.romstats.buildtype=$(HAVOC_BUILDTYPE) \
     ro.romstats.version=$(VERSION) \
     ro.romstats.tframe=1 \
     ro.romstats.askfirst=1 \
