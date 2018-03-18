@@ -146,6 +146,7 @@ PRODUCT_PACKAGES += \
     AdAway \
     Calculator \
     HavocSettings \
+	MagiskManager \
 	PixelLauncher \
 	Via
 
