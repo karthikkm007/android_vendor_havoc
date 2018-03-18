@@ -284,8 +284,22 @@ DEVICE_PACKAGE_OVERLAYS += vendor/havoc/overlay/common
 
 $(call prepend-product-if-exists, vendor/extra/product.mk)
 
-# Havoc Versioning
--include vendor/havoc/config/version.mk
+# Havoc Version
+PRODUCT_VERSION = 8.1.0
+ifneq ($(HAVOC_BUILDTYPE),)
+HAVOC_VERSION := Havoc-OS-$(shell date +%Y%m%d)-$(HAVOC_BUILD)-$(HAVOC_BUILDTYPE)
+else
+HAVOC_VERSION := Havoc-OS-$(shell date +%Y%m%d)-$(HAVOC_BUILD)
+endif
+
+PRODUCT_PROPERTY_OVERRIDES += \
+    ro.havoc.version=$(HAVOC_VERSION) \
+    ro.havoc.releasetype=$(HAVOC_BUILDTYPE) \
+    ro.havoc.build.version=$(PRODUCT_VERSION_MAJOR).$(PRODUCT_VERSION_MINOR) \
+    ro.modversion=$(HAVOC_VERSION) \
+    havoc.build.type=$(HAVOC_BUILDTYPE) \
+    havoc.ota.version= $(shell date +%Y%m%d) \
+    ro.havoc.tag=$(shell grep "refs/tags" .repo/manifest.xml  | cut -d'"' -f2 | cut -d'/' -f3)
 
 # Havoc OTA
 ifneq ($(HAVOC_BUILDTYPE),UNOFFICIAL)
