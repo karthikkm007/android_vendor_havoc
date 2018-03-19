@@ -147,6 +147,7 @@ PRODUCT_PACKAGES += \
     Calculator \
     HavocSettings \
 	MagiskManager \
+	Markup \
 	PixelLauncher \
 	Via
 
