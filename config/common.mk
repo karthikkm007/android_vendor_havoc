@@ -330,10 +330,8 @@ PRODUCT_PROPERTY_OVERRIDES += \
     ro.havoc.tag=$(shell grep "refs/tags" .repo/manifest.xml  | cut -d'"' -f2 | cut -d'/' -f3)
 
 # Havoc OTA
-ifneq ($(HAVOC_BUILDTYPE),UNOFFICIAL)
 PRODUCT_PACKAGES +=  \
-   Havoc_OTA
-endif
+   HavocOTA
 
 # Omni Packages
 PRODUCT_PACKAGES += \
