@@ -277,19 +277,34 @@ function havocremote()
         echo ".git directory not found. Please run this from the root directory of the Android repository you wish to set up."
         return 1
     fi
-    git remote rm havoc 2> /dev/null
-    local GERRIT_REMOTE=$(git config --get remote.github.projectname)
-    if [ -z "$GERRIT_REMOTE" ]
+    git remote rm lineage 2> /dev/null
+    local REMOTE=$(git config --get remote.github.projectname)
+    local LINEAGE="true"
+    if [ -z "$REMOTE" ]
     then
-        local GERRIT_REMOTE=$(git config --get remote.aosp.projectname | sed s#platform/#android/#g | sed s#/#_#g)
-        local PFX="HAVOC/"
+        REMOTE=$(git config --get remote.aosp.projectname)
+        LINEAGE="false"
     fi
-    local HAVOC_USER=$(git config --get gerrit.havoc-rom.com.username)
-    if [ -z "$HAVOC_USER" ]
+    if [ -z "$REMOTE" ]
     then
-        git remote add havoc ssh://gerrit.havoc-rom.com:29418/$PFX$GERRIT_REMOTE
+        REMOTE=$(git config --get remote.caf.projectname)
+        LINEAGE="false"
+    fi
+
+    if [ $LINEAGE = "false" ]
+    then
+        local PROJECT=$(echo $REMOTE | sed -e "s#platform/#android/#g; s#/#_#g")
+        local PFX="LineageOS/"
     else
-        git remote add havoc ssh://$Havoc_USER@gerrit.havoc-rom.com:29418/$PFX$GERRIT_REMOTE
+        local PROJECT=$REMOTE
+    fi
+
+    local LINEAGE_USER=$(git config --get review.review.lineageos.org.username)
+    if [ -z "$LINEAGE_USER" ]
+    then
+        git remote add lineage ssh://review.lineageos.org:29418/$PFX$PROJECT
+    else
+        git remote add lineage ssh://$LINEAGE_USER@review.lineageos.org:29418/$PFX$PROJECT
     fi
     echo "Remote 'havoc' created"
 }
