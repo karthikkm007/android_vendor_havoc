@@ -211,6 +211,7 @@ PRODUCT_PACKAGES += \
 	LineageNeonOrangeAccent \
 	LineageNeonPinkAccent \
 	LineageNeonPurpleAccent \
+	LineageNeonYellowAccent \
     LineageOrangeAccent \
     LineagePinkAccent \
     LineagePurpleAccent \
