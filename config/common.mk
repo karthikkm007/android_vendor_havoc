@@ -177,14 +177,9 @@ PRODUCT_PACKAGES += \
     AdAway \
     Calculator \
     HavocSettings \
-	MagiskManager \
 	Markup \
 	PixelLauncher \
 	Via
-
-# Copy Magisk zip
-PRODUCT_COPY_FILES += \
-    vendor/havoc/prebuilt/common/Magisk.zip:system/addon.d/Magisk.zip
 
 # Exchange support
 PRODUCT_PACKAGES += \
