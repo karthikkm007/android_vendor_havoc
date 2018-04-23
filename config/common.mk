@@ -167,6 +167,7 @@ PRODUCT_PACKAGES += \
     LineageSettingsProvider \
     LineageSetupWizard \
     Eleven \
+	Jelly \
     LockClock \
     Updater \
     WallpaperPicker \
