@@ -42,7 +42,7 @@ LOCAL_CERTIFICATE := PRESIGNED
 include $(BUILD_PREBUILT)
 
 include $(CLEAR_VARS)
-LOCAL_MODULE := PixelLauncher
+LOCAL_MODULE := RuthlessLauncher
 LOCAL_MODULE_OWNER := havoc
 LOCAL_SRC_FILES := app/$(LOCAL_MODULE).apk
 LOCAL_MODULE_TAGS := optional

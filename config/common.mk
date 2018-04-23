@@ -178,7 +178,7 @@ PRODUCT_PACKAGES += \
     Calculator \
     HavocSettings \
 	Markup \
-	Via
+	RuthlessLauncher
 
 # Exchange support
 PRODUCT_PACKAGES += \
