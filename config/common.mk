@@ -178,7 +178,6 @@ PRODUCT_PACKAGES += \
     Calculator \
     HavocSettings \
 	Markup \
-	PixelLauncher \
 	Via
 
 # Exchange support

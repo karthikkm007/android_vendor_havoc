@@ -1,98 +1,191 @@
-# Feature-List
+System-wide Rounded UI
+Dolby Atmos support
+Full OMS support
+Full OOS cam compatibility
+System-wide burn-in protection
+Spectrum support
+Compiled using SDCLANG
+Razer Phone lock/unlock sounds
+OTA support
+Mady's Xtended kernel
 
-- Accidental touch (Lineage)
-- Add GMS to battery optimization
-- Adjust number of notifications on Lockscreen
-- Adjust volume dialog timeout
-- Advanced reboot
-- Havoc Extras app for customizations and beyond
-- Havoc Logo in Stausbar
-- Allow more time steps to 'Do not disturb'
-- Automatic speakerphone by checking Proximity (Dialer)
-- Battery bar
-- Battery bar with color change & animation on charge
-- Battery save mode custom color
-- Bootanimation changer
-- Bluetooth battery level display for external devices
-- Brightness Icon and position settings
-- Brightness slider
-- Charging sounds: Add option to use default charging sound
-- Cpu info overlay
-- Current Charging status on Lockscreen
-- Custom App opening/closing Animations
-- Custom Carrier Label
-- Custom QS headers
-- Custom volume step count
-- Customize Night mode brightness settings
-- Disable lockscreen media art
-- Double tap to sleep on lockscreen
-- DT2S on navbar (for smartbar)
-- DT2S on status bar
-- DUI Fling (navbar with gestures)
-- DUI Pulse sound EQ in the statusbar
-- DUI Smartbar (on-screen navbar)
-- DUI Stock navbar option
-- Enhanced Changelog in HavocExtras
-- Enhanced QS tile for Hotspot (longpress for Tethering options)
-- File persistence on "hosts" file between flashes
-- Fingerprint authentication vibration
-- Fingerprint on reboot (optional)
-- Fingerprint scrolling
-- Flip to Mute/Reject Call
-- Headphones icon switch
-- Hide Magisk Manager / SuperSU from Settings, if it is uninstalled
-- Installed Apps: show link to Google Playstore
-- Integrated OTA-Update App in Havoc Extras
-- Launch music player when headset is connected
-- Lockscreen Shortcuts
-- Membar in recents (default and in SlimRecents)
-- Network traffic in status bar
-- Notification Light
-- OmniJaws (QS weather & weather in statusbar)
-- Partial screenshot
-- Power menu and dialogs transparency
-- Power menu on lock screen hide
-- Power/reboot dialogs dim amount
-- QS footer warnings
-- QS switchable for location (from LAOS)
-- QS Tiles Columns
-- QS tile for Ambient Display
-- QS tile for music playback & title display
-- QS tile for Night mode
-- QS Tiles Rows
-- QS Tile titles visibility
-- QS Tiles- HavocExtras, disable music track, sync, caffeine, PIP, nfc, sound, usb, system language, ime selector, usb tether, screenshot, flashlight, compass 
-- Quick settings disable on lockscreen
-- Quick settings fast pull down
-- Reset Battery Stats
-- ROM Stats
-- Screen Record
-- Screenshot sound toggle
-- Scrolling Cache
-- Selinux mode switch
-- Set start/end-colour of Pulse
-- Silent Mode
-- Slim Recents: allow to adjustment of round corners for cards
-- SlimRecents with tweaks like App side bar display
-- Small QS Tiles (scrollable)
-- Smartbar: Pixel Button Animatiom
-- SmartBar: show arrows for next/previous track when playing audio
-- Statusbar Havoc logo
-- Statusbar temperature
-- Statusbar Ticker for notifications and music title
-- Suspend actions
-- Swap volume buttons
-- System app remover
-- SystemUI theme (qs, power menu, navbar, volume dialog)
-- Unlink Notification Volume
-- Toggle to make Volume buttons change Music volume, not phone
-- Volume dialog stroke settings
-- Volume dialog transparency
-- Volume rocker music control
-- Volume Steps
-- VoLte icon
-- Weather in statusbar headers with icon support
-- Weather settings for Lockscreen (in  Extras)
-- Yoga time
 
-...and more
+Included Apps:
+AdAway
+Google Calculator
+Google Camera
+Google Markup
+OnePlus Camera
+OnePlus Gallery
+Ruthless Pixel Launcher
+Spectrum
+
+
+Settings:
+
+Battery:
+Battery performance profiles
+Sensor block per-package
+Wakelock blocker
+Alarm blocker
+Optimal charge level alert
+
+Display:
+Live display (Day/Night/Outside)
+Colour profiles (sRGB, DCI-P3)
+Font manager
+Ambient display
+Always on display
+Expanded desktop
+
+
+Havoc Settings:
+
+Status Bar:
+Quick pulldown
+Smart pulldown
+Tap to sleep
+Brightness control
+Battery icon styles
+Bluetooth battery status
+Battery bar
+Battery saver color
+Clock & date options
+Statusbar logo
+No sim network hide
+Disable no sim icon
+Volte icon
+Network icon customization
+Net activity
+Custom carrier label
+System icons
+
+Panels:
+Power menu tweaks
+Volume dialog tweaks
+
+Quick Settings:
+Brightness slider customization
+QS panel footer customization
+QS layout editor
+Custom header images
+
+Notifications:
+Disable fc notifications
+Force expanded notifications
+Disable immersive mode messages
+Kill app button in notification
+Screen-on notifications
+Toast icon
+Toast animation
+Toast icon color
+Toast text color
+Heads-up toggle
+Heads up timeout
+Snooze timer
+Statusbar ticker
+Ticker animation
+In-Call vibration options
+Less annoying in-call notifications
+
+Recents:
+Stock recents customization
+Clear all button customization
+Memory bar
+Recent styles
+Hide apps from recents
+Icon pack
+Immersive recents
+Recents layout (Stock/Grid/Android Go)
+OmniSwitch
+Slim recents
+
+Interface:
+Berry styles (Light/Dark/Black/Auto)
+Blur personalization
+Dashboard suggestions
+Dashboard conditions
+Screen stabilization
+
+Lockscreen:
+Charging info
+Hide statusbar
+Lockscreen elements visibility
+Notification count
+Lockscreen colors
+Clock and date options
+Lockscreen alpha
+Double tap to sleep
+Wake and unlock
+Ambient display music ticker
+Ambient display bottom view (Weather/Battery/None)
+Music cover art
+Music visualizer
+Disable power menu
+Disable qs panel
+Fingerprint vibration
+FP unlock on boot
+Face auto unlock
+Custom bottom shortcuts
+
+Navigation:
+Navigation mode(Stock/Smartbar/Fling)
+Dynamic navbar color
+Pulse
+
+Buttons:
+Swap back and recents
+Awesome alert slider (Use Slider for Notification, Flashlight, Brightness, Rotation, Ringer)
+Accidental touch
+Power menu customization
+Long press power button torch
+Disable buttons
+Button backlight customization
+Hardware keys customization
+Swap volume buttons with rotation
+Volume keys for media volume
+Playback control
+  
+Gestures:
+Three finger screenshot
+Pie control
+App circle bar
+Gesture anywhere
+Screen-on gestures
+Touchscreen gestures
+
+Animations:
+System Animations
+Android P animations
+Disable animations
+QS tile animations
+Listview animations
+Custom Bootanimation
+Screen off animation
+
+System:
+SELinux mode Toggle
+Smart Pixels
+Suspend actions
+System app remover
+Allow untrusted overlays toggle (for Substratum Support)
+CPU info overlay
+
+IME Settings:
+Selector notification
+Auto keyboard rotation
+Disable fullscreen keyboard
+
+Weather:
+Weather service settings
+Statusbar weather
+Lockscreen weather
+
+Miscellaneous:
+Screenshot editor
+Wake on plug
+Pocket detection
+Camera shutter sound
+Disable safe headset volume
+Launch music App on headset Connection
+Scrolling cache
