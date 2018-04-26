@@ -178,8 +178,8 @@ PRODUCT_PACKAGES += \
     AdAway \
     Calculator \
     HavocSettings \
-	Markup \
-	RuthlessLauncher
+	LeanLauncher \
+	Markup
 
 # Exchange support
 PRODUCT_PACKAGES += \
